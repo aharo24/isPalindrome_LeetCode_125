@@ -1,0 +1,47 @@
+class Solution{
+   // Palindrome = google what it means ** important **
+   public boolean isPalindrome(String checkString)
+   // User will Input ONLY Strings && 123... == checkString
+   // check if what user inputs is a Palindrom ( type[ex:integer,String] variableName)
+   {
+       if(checkString == null){
+           // userInput = No Type of [String] or [Digit]
+           // return false cuz the dumbass put nothingh[Human]
+           return false;
+       }
+       int left = 0, right = checkString.length() - 1;
+       // left 0 bCuz START
+       // right is - 1 bCuz we start from the END
+       while( left < right)
+       // left has [0]  while right has [theLengthOfWords]
+       // left pointer does ++ to catch the right side
+       // right pointer does -- to delete to lengthOfString [meet at {0} ]
+       {
+           if(!Character.isLetterOrDigit(checkString.charAt(left))){
+               // Not [human]String == lets Ignore it until we see "abc123" ->
+               ++ left;
+           }
+           else if(!Character.isLetterOrDigit(checkString.charAt(right))){
+               // Not [human]String == lets Ignore it until we see "abc123" ->
+               -- right;
+           }else if(Character.toLowerCase(checkString.charAt(left)) != Character.toLowerCase(checkString.charAt(right))) {
+               // [humanWords==True] IgnoreCaps && force lowerCase
+               // [middle] now... if Not Equal to right meaning
+               // left has to be 0
+               // right has to be 0
+               //  if they did Not Erased eachothber == 0
+               // than Return FALSE
+               return false;
+           } else{
+               // while the loop has not stopped... LETS
+               // [add] to the left to move -->
+               // [delete] from right to move <--
+               ++ left;
+               -- right;
+           }
+           //if it passed ALL CONDITIONS
+           // RETURN TRUE;
+
+       } return true;
+   }
+}
